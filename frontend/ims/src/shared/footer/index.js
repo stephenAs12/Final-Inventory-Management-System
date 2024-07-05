@@ -1,9 +1,14 @@
-import React from 'react'
 
-function index() {
-  return (
-    <div>this is footer</div>
+import { Layout } from 'antd'
+const { Footer } = Layout;
+
+const FooterComp=()=>{
+  return(
+      <Footer>
+        <h1>Footer</h1>
+      </Footer>
   )
 }
 
-export default index
+export default FooterComp
+
