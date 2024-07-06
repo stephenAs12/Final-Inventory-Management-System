@@ -1,47 +1,55 @@
-
-import React, { useState } from 'react';
-import { Layout } from 'antd'
+import React from "react";
+import {
+  LaptopOutlined,
+  NotificationOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { Layout, Menu, theme } from "antd";
+import ContentComp from "../content";
 const { Sider } = Layout;
 
-const SiderComp=()=>{
-  const [collapsed, setCollapsed] = useState(false);
-  return(
-      <Sider hasSider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} style={{
-        overflow: 'auto',
-        height: '100vh',
-        position: 'fixed',
-        left: 0,
-        top: 0,
-        bottom: 0,
-        color: 'white',
-      }}>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
-        <p>Sider</p>
+const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
+  (icon, index) => {
+    const key = String(index + 1);
+    return {
+      key: `sub${key}`,
+      icon: React.createElement(icon),
+      label: `subnav ${key}`,
+      children: new Array(4).fill(null).map((_, j) => {
+        const subKey = index * 4 + j + 1;
+        return {
+          key: subKey,
+          label: `option${subKey}`,
+        };
+      }),
+    };
+  }
+);
+const SiderComp = () => {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+  return (
+    <Layout>
+      <Sider
+        width={200}
+        style={{
+          background: colorBgContainer,
+        }}
+      >
+        <Menu
+          mode="inline"
+          defaultSelectedKeys={["1"]}
+          defaultOpenKeys={["sub1"]}
+          style={{
+            height: "100%",
+            borderRight: 0,
+          }}
+          items={items2}
+        />
       </Sider>
-  )
-}
-
-export default SiderComp
-
+      <ContentComp />
+    </Layout>
+  );
+};
+export default SiderComp;

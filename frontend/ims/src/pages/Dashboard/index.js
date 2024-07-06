@@ -1,20 +1,16 @@
-import { Layout } from 'antd'
-import HeaderComp from '../../shared/header';
-import FooterComp from '../../shared/footer';
-import ContentComp from '../../shared/content';
-import SiderComp from '../../shared/left panel';
+import React from "react";
+import { Layout } from "antd";
+import HeaderComp from "../../shared/header";
+import SiderComp from "../../shared/left panel";
 
-const Dashboard = () => {
-  return(
+const App = () => {
+  return (
     <Layout>
-      <HeaderComp/>
-      <ContentComp/>
+      <HeaderComp />
       <Layout>
-        <SiderComp/>
+        <SiderComp />
       </Layout>
-      <FooterComp/>
     </Layout>
-  )
+  );
 };
-
-export default Dashboard;
+export default App;

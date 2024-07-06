@@ -1,50 +1,38 @@
-
-import { Layout } from 'antd'
+import React from "react";
+import { Breadcrumb, Layout, theme } from "antd";
 const { Content } = Layout;
 
-const ContentComp=()=>{
-  return(
-      <Content>
-        <h1>Lorem Ipsum is simply dummy text of the printing and 
-typesetting industry. Lorem Ipsum has been the industry's 
-standard dummy text ever since the 1500s, when an unknown 
-printer took a galley of type and scrambled it to make a 
-type specimen book. It has survived not only five centuries, 
-but also the leap into electronic typesetting, remaining 
-essentially unchanged. It was popularised in the 1960s 
-with the release of Letraset sheets containing Lorem Ipsum 
-passages, and more recently with desktop publishing software 
-like Aldus PageMakeLorem Ipsum is simply dummy text of the printing and 
-typesetting industry. Lorem Ipsum has been the industry's 
-standard dummy text ever since the 1500s, when an unknown 
-printer took a galley of type and scrambled it to make a 
-type specimen book. It has survived not only five centuries, 
-but also the leap into electronic typesetting, remaining 
-essentially unchanged. It was popularised in the 1960s 
-with the release of Letraset sheets containing Lorem Ipsum 
-passages, and more recently with desktop publishing software 
-like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and 
-typesetting industry. Lorem Ipsum has been the industry's 
-standard dummy text ever since the 1500s, when an unknown 
-printer took a galley of type and scrambled it to make a 
-type specimen book. It has survived not only five centuries, 
-but also the leap into electronic typesetting, remaining 
-essentially unchanged. It was popularised in the 1960s 
-with the release of Letraset sheets containing Lorem Ipsum 
-passages, and more recently with desktop publishing software 
-like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and 
-typesetting industry. Lorem Ipsum has been the industry's 
-standard dummy text ever since the 1500s, when an unknown 
-printer took a galley of type and scrambled it to make a 
-type specimen book. It has survived not only five centuries, 
-but also the leap into electronic typesetting, remaining 
-essentially unchanged. It was popularised in the 1960s 
-with the release of Letraset sheets containing Lorem Ipsum 
-passages, and more recently with desktop publishing software 
-like Aldus PageMaker including versions of Lorem Ipsum.r including versions of Lorem Ipsum.</h1>
-      </Content>
-  )
-}
-
-export default ContentComp
-
+const ContentComp = () => {
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
+  return (
+      <Layout
+        style={{
+          padding: "0 24px 24px",
+        }}
+      >
+        <Breadcrumb
+          style={{
+            margin: "16px 0",
+          }}
+        >
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>List</Breadcrumb.Item>
+          <Breadcrumb.Item>App</Breadcrumb.Item>
+        </Breadcrumb>
+        <Content
+          style={{
+            padding: 24,
+            margin: 0,
+            minHeight: 280,
+            background: colorBgContainer,
+            borderRadius: borderRadiusLG,
+          }}
+        >
+          Content
+        </Content>
+      </Layout>
+  );
+};
+export default ContentComp;
