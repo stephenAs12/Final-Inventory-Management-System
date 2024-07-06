@@ -10,6 +10,8 @@ const HeaderComp = () => {
   return (
     <Header
       style={{
+        position: 'sticky',
+        top: '0',
         display: "flex",
         alignItems: "center",
       }}

@@ -5,7 +5,6 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, theme } from "antd";
-import ContentComp from "../content";
 const { Sider } = Layout;
 
 const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
@@ -30,7 +29,6 @@ const SiderComp = () => {
     token: { colorBgContainer },
   } = theme.useToken();
   return (
-    <Layout>
       <Sider
         width={200}
         style={{
@@ -42,14 +40,12 @@ const SiderComp = () => {
           defaultSelectedKeys={["1"]}
           defaultOpenKeys={["sub1"]}
           style={{
-            height: "100%",
+            height: "100vh",
             borderRight: 0,
           }}
           items={items2}
         />
       </Sider>
-      <ContentComp />
-    </Layout>
   );
 };
 export default SiderComp;
